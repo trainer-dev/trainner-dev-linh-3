@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dong ho dem giay</title>
+    <style>
+        ul{
+            list-style-type: none;
+            margin: 0;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        ul li{
+            float: left;
+            display: inline;
+        }
+        .time {
+            width: 300px;
+            height: 100px;
+            border: 1px solid #000000;
+            padding: 0 30px
+        }
+    </style>
+</head>
+<body>
+<div class="time">
+    <ul>
+        <li><p id="m">0:</p></li>
+        <li><p id="s">0.</p></li>
+        <li><p id="ms">0</p></li>
+    </ul>
+
+    <input type="button" onclick="start()" value="Bat dau">
+    <input type="button" onclick="stop()" value="Dung lai">
+    <input type="button" onclick="reset()" value="Reset">
+
+</div>
+
+    <script>
+        var m = 0;
+        var s = 0;
+        var ms =0;
+
+        function start() {
+            //if ms =10 => return 0
+            //s+1
+            if (ms===100) {
+                s++;
+                ms =0;
+            }
+
+            //if s=59 => return 0 and m +=1
+            if (s===59) {
+                m++;
+                s = 0;
+            }
+
+            document.getElementById("m").innerText=m.toString()+": ";
+            document.getElementById("s").innerText=s.toString()+". ";
+            document.getElementById("ms").innerText=ms.toString();
+
+            timeout = setTimeout(
+                function () {
+                    ms +=1;
+                    start()
+                },10)
+        }
+        function stop() {
+            clearTimeout(timeout);
+        }
+        function reset() {
+            document.getElementById("m").innerHTML =  0 +":";
+            document.getElementById("s").innerHTML =  0 +".";
+            document.getElementById("ms").innerHTML =  0;
+        }
+    </script>
+</body>
+</html>

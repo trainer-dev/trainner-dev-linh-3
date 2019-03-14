@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercise 2</title>
+    <style>
+        form{
+            padding: 10px 0;
+        }
+        p {
+            padding: 0;
+            margin: 0;
+            height: 15px;
+        }
+        td{
+            text-align: right;
+        }
+        ul{
+            padding: 0;
+            margin:0;
+        }
+        li{
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+<div id="table">
+    <form action="" onsubmit="return myFunction()">
+        Anh: <input type="text" id="Anh" name="Anh" ><br>
+        Phap: <input type="text" id="Phap" name="Phap"><br>
+        Duc: <input type="text" id="Duc" name="Duc"><br>
+        Nga: <input type="text" id="Nga" name="Nga"><br>
+        Nhat: <input type="text" id="Nhat" name="Nhat"><br>
+        <input  type="button" value="Ve do thi" onclick="myFunction()" id="submit" name="submit">
+    </form>
+</div>
+    <table id="tb" border="1"></table>
+        <script>
+        var id = document.getElementById("table");
+        var a = document.getElementById("Anh");
+        var p = document.getElementById("Phap");
+        var d = document.getElementById("Duc");
+        var ng = document.getElementById("Nga");
+        var nh = document.getElementById("Nhat");
+
+        function myFunction() {
+
+            var arrayName = ["Anh","Phap","Duc", "Nga", "Nhat"];
+            var arrayId = [a.value ,p.value ,d.value ,ng.value ,nh.value];
+
+            var doThi = "<tr>";
+            for (var i = 0; i < 5; i++) {
+                doThi += "<td>" + arrayName[i]+ "</td>";
+                doThi += "<td><ul><li><p></p></li><li>";
+                if (arrayId[i].length === 0) {
+                    doThi += 0;
+                }
+                else {
+                    doThi += arrayId[i];
+                }
+                doThi += "% </li></ul></td>";
+
+                var x= document.getElementsByTagName("p");
+                for (var j = 0; j < x.length; j++) {
+                    b = arrayId[i] + "px";
+                    x[j].style.width= b ;
+                    x[j].style.height = "15px";
+                    x[j].style.backgroundColor = "red";
+                }
+
+                doThi += "</tr>";
+            }
+            document.getElementById("tb").innerHTML = doThi;
+        }
+    </script>
+</body>
+</html>

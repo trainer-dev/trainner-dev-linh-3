@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VE tam giac</title>
+</head>
+<body>
+<form id="form">
+    <input type="text" id="nums">
+    <input  type="button" onclick="submitA()" value="click">
+</form>
+
+    <script>
+        var n = document.getElementById("nums");
+        var a = ["1","2","3","4","5","6","7","8","9","0"];
+
+        function submitA() {
+            var size = n.value;
+            for(var i=0 ; i< size; i++) {
+                hinh = a[i] += " ";
+                for(var j=i-1; j>=0; j--) {
+                    hinh += a[j] += " ";
+                }
+                hinh += "<br>";
+
+                if(i >= 9) {
+                    for (x=0; x< 10; x++ ) {
+                        a.push(a[x]);
+                    }
+                }
+
+                document.write(hinh);
+            }
+        }
+    </script>
+</body>
+</html>

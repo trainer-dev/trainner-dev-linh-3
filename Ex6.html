@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính điện tử</title>
+    <style>
+        input[type=text] {
+            max-width: 35px;
+            height: 15px;
+        }
+        .casio {
+            max-width: 300px;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid #000000;
+        }
+        p {
+            width: 5px;
+            margin: 0;
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <div class="casio">
+        <form>
+            <input type="text" id="num1">
+            <button onclick="cong()" type="button">+</button>
+            <button onclick="tru()" type="button">-</button>
+            <button onclick="nhan()" type="button">*</button>
+            <button onclick="chia()" type="button">/</button>
+            <button onclick="mu()" type="button">^</button>
+            <input type="text" id="num2">
+            <p> = </p>
+            <input type="text" id="rs">
+        </form>
+    </div>
+
+
+    <script>
+        var num1 = document.getElementById("num1");
+        var num2 = document.getElementById("num2");
+        var rs = document.getElementById("rs");
+
+
+        function cong() {
+            var cong = +num1.value + +num2.value;
+            rs.value = cong;
+        }
+
+        function tru () {
+            var tru= +num1.value - num2.value;
+            rs.value = tru;
+        }
+
+        function nhan() {
+            var nhan = num1.value * num2.value;
+            rs.value = nhan;
+        }
+
+        function chia() {
+            var chia = num1.value/num2.value;
+            rs.value = chia;
+        }
+
+        function mu() {
+            var mu = Math.pow(num1.value,num2.value);
+            rs.value = mu;
+        }
+    </script>
+</body>
+</html>

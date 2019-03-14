@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VE tam giac</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form id="form">
+    <input type="text" id="nums">
+    <input  type="button" onclick="submitA()" value="Ve tam giac">
+
+</form>
+
+<script>
+    var n = document.getElementById("nums");
+    var a = ["1","2","3","4","5","6","7","8","9","0"];
+
+    function submitA() {
+        var size = n.value;
+        for (var i = 1; i <= size ; i ++)
+        {
+            for(var j = 0 ; j <= size-i; j ++)
+                var tg = " ";
+            for(var k = 1; k <= i ; k ++) {
+                if(k===1||k===i) {
+                    tg += a[i-1];
+                }
+
+                else {
+                    for(var b=2;b <  i/2+1;b++){
+                        if (k===b)
+                            tg += " " + a[i-b] + " ";
+                    }
+                    for(var c=b; c<i;c++) {
+                        if (k===c) {
+                            for (z=1; z<2;z++)
+                                tg += " " + a[k-2+z] + " ";
+                        }
+                    }
+                }
+
+            }
+
+            if(i >= 9) {
+                for (x=0; x< 10; x++ ) {
+                    a.push(a[x]);
+                }
+            }
+
+            document.write("<p>" + tg + "</p>");
+            var x = document.getElementsByTagName("P");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.textAlign= "center";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
