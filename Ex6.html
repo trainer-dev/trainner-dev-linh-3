@@ -5,7 +5,7 @@
     <title>Máy tính điện tử</title>
     <style>
         input[type=text] {
-            max-width: 35px;
+            max-width: 40px;
             height: 15px;
         }
         .casio {
@@ -59,9 +59,15 @@
         }
 
         function chia() {
-            var chia = num1.value/num2.value;
-            rs.value = chia;
+            if (num1.value ==0 && num2.value ==0) {
+                rs.value = "infinity";
+            }
+            else {
+                var chia = num1.value/num2.value;
+                rs.value = chia;
+            }
         }
+
 
         function mu() {
             var mu = Math.pow(num1.value,num2.value);

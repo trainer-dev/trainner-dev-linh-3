@@ -30,8 +30,8 @@
         <li><p id="ms">0</p></li>
     </ul>
 
-    <input type="button" onclick="start()" value="Bat dau">
-    <input type="button" onclick="stop()" value="Dung lai">
+    <input type="button" onclick="start()" value="Bat dau" id="start">
+    <input type="button" onclick="stop()" value="Dung lai" id="stop">
     <input type="button" onclick="reset()" value="Reset">
 
 </div>
@@ -59,19 +59,24 @@
             document.getElementById("s").innerText=s.toString()+". ";
             document.getElementById("ms").innerText=ms.toString();
 
-            timeout = setTimeout(
-                function () {
+            //run
+            var time = function () {
                     ms +=1;
                     start()
-                },10)
+            };
+            timeouts = setTimeout(time,1);
+            document.getElementById("start").disabled = true;
         }
+
+        //stop
         function stop() {
-            clearTimeout(timeout);
+            clearTimeout(timeouts);
+            document.getElementById("start").disabled = false;
         }
+
+        //reset time
         function reset() {
-            document.getElementById("m").innerHTML =  0 +":";
-            document.getElementById("s").innerHTML =  0 +".";
-            document.getElementById("ms").innerHTML =  0;
+            location.reload();
         }
     </script>
 </body>
